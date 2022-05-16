@@ -192,6 +192,8 @@ class CustomTableViewCellAddPlant: UITableViewCell {
     
     func createToolBarInterval() -> UIToolbar {
         let toolbar = UIToolbar()
+        toolbar.layer.masksToBounds = true
+        toolbar.layer.cornerRadius = 8
         toolbar.sizeToFit()
         
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedInterval))
