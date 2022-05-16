@@ -11,14 +11,51 @@ class CustomTableViewCellAddPlant: UITableViewCell {
     
     static let identifier = "CustomTableViewCellAddPlant"
     
-    let array: [String] = ["teste1", "teste2", "teste3"]
+    var array: [String] = []
+
+    func makeArray(){
+        var counter = 0
+
+        while counter <= 365 {
+            let stringNumber = String(counter)
+            array.append("A cada \(stringNumber) dias")
+            counter += 1
+        }
+    }
     
-    private let pickerTextField: UITextField = {
-        let pickerTextField = UITextField()
-        pickerTextField.backgroundColor = .systemBackground
-        pickerTextField.textColor = .label
-        pickerTextField.layer.cornerRadius = 8
-        return pickerTextField
+    private let pickerTextFieldInterval: UITextField = {
+        let pickerTextFieldInterval = UITextField()
+        pickerTextFieldInterval.backgroundColor = .systemBackground
+        pickerTextFieldInterval.textColor = .label
+        pickerTextFieldInterval.font = UIFont(name: "Nunito-Regular", size: 12)
+        pickerTextFieldInterval.layer.cornerRadius = 8
+        pickerTextFieldInterval.frame = CGRect(x: 0, y: 0, width: 0, height: 48)
+        pickerTextFieldInterval.placeholder = "Escolher intervalo"
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15
+                                                       , height: 20))
+        pickerTextFieldInterval.leftView = paddingView
+        pickerTextFieldInterval.leftViewMode = .always
+        return pickerTextFieldInterval
+    }()
+    
+    private let pickerTextFieldLastTime: UITextField = {
+        let pickerTextFieldLastTime = UITextField()
+        pickerTextFieldLastTime.backgroundColor = .systemBackground
+        pickerTextFieldLastTime.textColor = .label
+        pickerTextFieldLastTime.font = UIFont(name: "Nunito-Regular", size: 12)
+        pickerTextFieldLastTime.layer.cornerRadius = 8
+        pickerTextFieldLastTime.frame = CGRect(x: 0, y: 0, width: 0, height: 48)
+        pickerTextFieldLastTime.placeholder = "Escolher intervalo"
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15
+                                                       , height: 20))
+        pickerTextFieldLastTime.leftView = paddingView
+        pickerTextFieldLastTime.leftViewMode = .always
+        return pickerTextFieldLastTime
+    }()
+    
+    private let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        return datePicker
     }()
     
     private let pickerView: UIPickerView = {
@@ -42,13 +79,6 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         return lastTimeLabel
     }()
     
-//    private let switchButton: UISwitch = {
-//        let switchButton = UISwitch()
-//        switchButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-//        switchButton.setOn(false, animated: true)
-//        return switchButton
-//    }()
-    
     private let image: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "sol.svg")
@@ -68,17 +98,24 @@ class CustomTableViewCellAddPlant: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
+        makeArray()
         contentView.backgroundColor = .secondarySystemBackground
 
         contentView.addSubview(image)
         contentView.addSubview(label)
         contentView.addSubview(intervalLabel)
-        contentView.addSubview(pickerTextField)
-        contentView.addSubview(pickerView)
+        contentView.addSubview(pickerTextFieldInterval)
+        contentView.addSubview(lastTimeLabel)
+        contentView.addSubview(pickerTextFieldLastTime)
         
         pickerView.delegate = self
         pickerView.dataSource = self
-        pickerTextField.inputView = pickerView        
+        pickerTextFieldInterval.inputView = pickerView
+        
+        pickerTextFieldLastTime.inputView = datePicker
+        pickerTextFieldLastTime.inputAccessoryView = createToolBar()
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
         
     }
     
@@ -86,7 +123,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         super.layoutSubviews()
         
         self.contentView.layer.cornerRadius = 8
-        self.contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3))
+        self.contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4))
         
         image.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -104,26 +141,28 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         intervalLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             intervalLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 16),
-            //intervalLabel.leadingAnchor.constraint(equalTo: image.leadingAnchor),
             intervalLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
         
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        pickerTextFieldInterval.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            pickerView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pickerTextFieldInterval.topAnchor.constraint(equalTo: intervalLabel.bottomAnchor, constant: 16),
+            pickerTextFieldInterval.widthAnchor.constraint(equalTo: self.widthAnchor),
         ])
         
-        pickerTextField.translatesAutoresizingMaskIntoConstraints = false
+        lastTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            pickerTextField.topAnchor.constraint(equalTo: intervalLabel.bottomAnchor, constant: 16),
-            pickerTextField.widthAnchor.constraint(equalTo: self.widthAnchor),
+            lastTimeLabel.topAnchor.constraint(equalTo: pickerTextFieldInterval.bottomAnchor, constant: 24),
+            lastTimeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
         
-//        switchButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            switchButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            switchButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-//        ])
+        pickerTextFieldLastTime.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pickerTextFieldLastTime.topAnchor.constraint(equalTo: lastTimeLabel.bottomAnchor, constant: 24),
+            pickerTextFieldLastTime.widthAnchor.constraint(equalTo: self.widthAnchor),
+        ])
+
         
     }
 
@@ -143,6 +182,27 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         image.image = nil
     }
     
+    func createToolBar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneBtn], animated: true)
+        
+        return toolbar
+    }
+    
+    @objc func donePressed(){
+        
+        let dateFormarter = DateFormatter()
+        dateFormarter.dateStyle = .medium
+        dateFormarter.timeStyle = .none
+        
+        pickerTextFieldLastTime.endEditing(true)
+        pickerTextFieldLastTime.text = dateFormarter.string(from: datePicker.date)
+        
+        pickerTextFieldLastTime.resignFirstResponder()
+    }
 }
 
 extension CustomTableViewCellAddPlant: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -163,8 +223,8 @@ extension CustomTableViewCellAddPlant: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField.text = array[row]
-        pickerTextField.resignFirstResponder()
+        pickerTextFieldInterval.text = array[row]
+        pickerTextFieldInterval.resignFirstResponder()
     }
     
 }

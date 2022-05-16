@@ -10,29 +10,21 @@ import UIKit
 
 class AddPlant: UIViewController {
 
-    var water: Bool = false
-    var scissor: Bool = false
-    var fertilizer: Bool = false
-    var sunBath: Bool = false
-    var insecticide: Bool = false
+    var waterInterval: Double = 1.0
+    var waterLastTime: Date = Date()
+    var scissorInterval: Double = 1.0
+    var scissorLastTime: Date = Date()
+    var fertilizerInterval: Double = 1.0
+    var fertilizerLastTime: Date = Date()
+    var sunBathInterval: Double = 1.0
+    var sunBathLastTime: Date = Date()
+    var insecticideInterval: Double = 1.0
+    var insecticideLastTime: Date = Date()
     
-    func whichTask(row: Int){
-        if row == 0 {
-            water = true
-        } else if row == 1 {
-            scissor = true
-        } else if row == 2 {
-            sunBath = true
-        } else if row == 3 {
-            fertilizer = true
-        } else {
-            insecticide = true
-        }
-    }
     
     @objc func buttonAction(){
         let namePlant: String = returnText(nameTextField)
-        let newPlant = Plant(name: namePlant, water: water, scissor: scissor, fertilizer: fertilizer, sunBath: sunBath, insecticide: insecticide)
+        let newPlant = Plant(name: namePlant, waterInterval: waterInterval, waterLastTime: waterLastTime, scissorInterval: scissorInterval, scissorLastTime: scissorLastTime, fertilizerInterval: fertilizerInterval, fertilizerLastTime: fertilizerLastTime, sunBathInterval: scissorInterval, sunBathLastTime: sunBathLastTime, insecticideInterval: insecticideInterval, insecticideLastTime: insecticideLastTime)
         myPlants.append(newPlant)
         dismiss(animated: true)
     }

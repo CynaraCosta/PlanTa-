@@ -23,7 +23,7 @@ extension AnalyzePlant: UITableViewDataSource {
         func whichLabel() -> String{
             var label: String
             
-            if indexPath.row == 0 {
+            if indexPath.row == 0{
                 label = "Água"
             } else if indexPath.row == 1 {
                 label = "Corte"
@@ -41,7 +41,7 @@ extension AnalyzePlant: UITableViewDataSource {
         func whichImage() -> String {
             var label: String
             
-            if indexPath.row == 0 {
+            if indexPath.row == 0{
                 label = "drop.fill.svg"
             } else if indexPath.row == 1 {
                 label = "scissors.svg"

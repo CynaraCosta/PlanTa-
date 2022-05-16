@@ -69,11 +69,11 @@ extension AddPlant: UITableViewDataSource {
 extension AddPlant: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 200
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        whichTask(row: indexPath.row)
+//        whichTask(row: indexPath.row)
     }
     
 }
