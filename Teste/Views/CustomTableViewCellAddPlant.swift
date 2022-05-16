@@ -111,9 +111,10 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerTextFieldInterval.inputView = pickerView
+        pickerTextFieldInterval.inputAccessoryView = createToolBarInterval()
         
         pickerTextFieldLastTime.inputView = datePicker
-        pickerTextFieldLastTime.inputAccessoryView = createToolBar()
+        pickerTextFieldLastTime.inputAccessoryView = createToolBarLastTime()
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
         
@@ -162,10 +163,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
             pickerTextFieldLastTime.topAnchor.constraint(equalTo: lastTimeLabel.bottomAnchor, constant: 24),
             pickerTextFieldLastTime.widthAnchor.constraint(equalTo: self.widthAnchor),
         ])
-
-        
     }
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -182,17 +180,27 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         image.image = nil
     }
     
-    func createToolBar() -> UIToolbar {
+    func createToolBarLastTime() -> UIToolbar {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedLastTime))
         toolbar.setItems([doneBtn], animated: true)
         
         return toolbar
     }
     
-    @objc func donePressed(){
+    func createToolBarInterval() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedInterval))
+        toolbar.setItems([doneBtn], animated: true)
+        
+        return toolbar
+    }
+    
+    @objc func donePressedLastTime(){
         
         let dateFormarter = DateFormatter()
         dateFormarter.dateStyle = .medium
@@ -200,9 +208,19 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         
         pickerTextFieldLastTime.endEditing(true)
         pickerTextFieldLastTime.text = dateFormarter.string(from: datePicker.date)
-        
+
         pickerTextFieldLastTime.resignFirstResponder()
     }
+    
+    @objc func donePressedInterval(){
+        
+        let string = String(pickerView.selectedRow(inComponent: 0))
+        pickerTextFieldInterval.text = "A cada " + string + " dias"
+        
+        pickerTextFieldInterval.endEditing(true)
+        pickerTextFieldInterval.resignFirstResponder()
+    }
+    
 }
 
 extension CustomTableViewCellAddPlant: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -220,11 +238,6 @@ extension CustomTableViewCellAddPlant: UIPickerViewDelegate, UIPickerViewDataSou
         labelTitle.textColor = .label
         
         return labelTitle
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextFieldInterval.text = array[row]
-        pickerTextFieldInterval.resignFirstResponder()
     }
     
 }
