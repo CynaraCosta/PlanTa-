@@ -14,11 +14,15 @@ class CustomTableViewCellAddPlant: UITableViewCell {
     var array: [String] = []
 
     func makeArray(){
-        var counter = 0
+        var counter = 1
 
         while counter <= 365 {
-            let stringNumber = String(counter)
-            array.append("A cada \(stringNumber) dias")
+            if counter == 1 {
+                array.append("Todo dia")
+            } else {
+                let stringNumber = String(counter)
+                array.append("A cada \(stringNumber) dias")
+            }
             counter += 1
         }
     }
@@ -216,8 +220,15 @@ class CustomTableViewCellAddPlant: UITableViewCell {
     
     @objc func donePressedInterval(){
         
-        let string = String(pickerView.selectedRow(inComponent: 0))
-        pickerTextFieldInterval.text = "A cada " + string + " dias"
+        let string = pickerView.selectedRow(inComponent: 0)
+        
+        if string == 0 {
+            pickerTextFieldInterval.text = "Todo dia"
+        } else {
+            pickerTextFieldInterval.text = "A cada " + String(string + 1) + " dias"
+        }
+        
+        
         
         pickerTextFieldInterval.endEditing(true)
         pickerTextFieldInterval.resignFirstResponder()
