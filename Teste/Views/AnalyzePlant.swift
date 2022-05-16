@@ -9,8 +9,21 @@ import UIKit
 
 class AnalyzePlant: UIViewController {
     
+    var timeDateLabel: Timer?
+    
+    private let dateString: UILabel = {
+        let dateString = UILabel()
+        dateString.frame = CGRect(x: 0, y: 0, width: 115, height: 25)
+        dateString.font = UIFont(name: "Nunito-ExtraBold", size: 25)
+        dateString.text = "Place hold"
+        dateString.textColor = UIColor(named: "verde-escuro")
+        return dateString
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timeDateLabel = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(changeLabelText), userInfo: nil, repeats: true)
         
         view.backgroundColor = .tertiarySystemBackground
         
@@ -38,12 +51,19 @@ class AnalyzePlant: UIViewController {
             plantImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
         ])
         
+        view.addSubview(dateString)
+        dateString.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dateString.topAnchor.constraint(equalTo: plantImage.bottomAnchor, constant: 24),
+            dateString.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+        ])
+        
         view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.8),
-            tableView.topAnchor.constraint(equalTo: plantImage.bottomAnchor, constant: 24),
+            tableView.topAnchor.constraint(equalTo: dateString.bottomAnchor, constant: 24),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 24),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
@@ -58,5 +78,16 @@ class AnalyzePlant: UIViewController {
         let imageName = "planta" + number + ".svg"
         return imageName
         }
-        
+    
+    @objc func changeLabelText(){
+        dateString.text = changeDate()
     }
+    
+    func changeDate() -> String{
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd MMMM, yyyy"
+        let now = dateFormater.string(from: Date())
+        return now
+    }
+        
+}

@@ -31,8 +31,8 @@ class CustomAddNewPlantTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
         contentView.backgroundColor = UIColor(named: "verde-escuro")
-        self.addSubview(label)
-        self.addSubview(image)
+        contentView.addSubview(label)
+        contentView.addSubview(image)
     }
     
     override func layoutSubviews() {
@@ -46,7 +46,7 @@ class CustomAddNewPlantTableViewCell: UITableViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             image.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            image.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            image.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 48),
         ])
         
         label.frame = CGRect(x: 0, y: 0, width: 187, height: 16)
