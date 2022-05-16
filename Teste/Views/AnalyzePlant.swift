@@ -17,6 +17,7 @@ class AnalyzePlant: UIViewController {
         let tableView = UITableView()
         tableView.register(CustomTableViewCellAnalyze.self, forCellReuseIdentifier: CustomTableViewCellAnalyze.identifier)
         
+        tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
         

@@ -61,6 +61,7 @@ class HomeVC: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = .clear
         
         self.view.addSubview(tableView)
         

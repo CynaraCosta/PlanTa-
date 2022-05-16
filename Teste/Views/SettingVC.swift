@@ -35,6 +35,7 @@ class SettingVC: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = .clear
         
         self.view.addSubview(tableView)
         self.view.addSubview(titleLabel)
