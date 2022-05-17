@@ -20,47 +20,17 @@ extension AnalyzePlant: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        func whichLabel() -> String{
-            var label: String
-            
-            if indexPath.row == 0{
-                label = "Água"
-            } else if indexPath.row == 1 {
-                label = "Corte"
-            } else if indexPath.row == 2 {
-                label = "Banho de sol"
-            } else if indexPath.row == 3 {
-                label = "Fertilizante"
-            } else {
-                label = "Inseticida"
-            }
-            
-            return label
-        }
-        
-        func whichImage() -> String {
-            var label: String
-            
-            if indexPath.row == 0{
-                label = "drop.fill.svg"
-            } else if indexPath.row == 1 {
-                label = "scissors.svg"
-            } else if indexPath.row == 2 {
-                label = "sol.svg"
-            } else if indexPath.row == 3 {
-                label = "fertilizante.svg"
-            } else {
-                label = "inseticida.svg"
-            }
-            
-            return label
-        }
-        
-        cell.configure(text: whichLabel(), imageName: whichImage())
+        cell.configure(text: cells[indexPath.row].label, imageName: cells[indexPath.row].image)
         
         let bgColor = UIView()
         bgColor.backgroundColor = .secondarySystemBackground
         cell.selectedBackgroundView = bgColor
+        
+//        for plant in myPlants {
+//            if indexPath.row == 0 && plant.Interval(startTime: plant.waterLastTime, duration: plant.waterInterval) {
+//                return cell
+//            }
+//        }
         
         return cell
     }

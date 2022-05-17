@@ -215,6 +215,8 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         
         pickerTextFieldLastTime.endEditing(true)
         pickerTextFieldLastTime.text = dateFormarter.string(from: datePicker.date)
+        
+        arrayTesteLastTime.append(datePicker.date)
 
         pickerTextFieldLastTime.resignFirstResponder()
     }
@@ -229,6 +231,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
             pickerTextFieldInterval.text = "A cada " + String(string + 1) + " dias"
         }
         
+        arrayTesteInterval.append(Double(string + 1))
         pickerTextFieldInterval.endEditing(true)
         pickerTextFieldInterval.resignFirstResponder()
     }
@@ -253,10 +256,6 @@ extension CustomTableViewCellAddPlant: UIPickerViewDelegate, UIPickerViewDataSou
         
         return labelTitle
     }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        <#code#>
-    }
-    
 }
+
 

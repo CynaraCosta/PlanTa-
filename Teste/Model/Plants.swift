@@ -44,7 +44,7 @@ class Plant {
         let dateInterval = DateInterval(start: startTime, duration: duration * 24.0 * 3600.0)
         let dateEnd = dateInterval.end
         
-        if dateEnd == now {
+        if dateEnd == now || dateEnd > now {
             return true
         } else {
             return false

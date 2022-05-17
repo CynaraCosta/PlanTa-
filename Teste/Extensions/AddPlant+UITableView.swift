@@ -8,8 +8,9 @@
 import UIKit
 
 extension AddPlant: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -19,44 +20,8 @@ extension AddPlant: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? CustomTableViewCellAddPlant else{
             return UITableViewCell()
         }
-        
-        func whichLabel() -> String{
-            var label: String
-            
-            if indexPath.row == 0 {
-                label = "Água"
-            } else if indexPath.row == 1 {
-                label = "Corte"
-            } else if indexPath.row == 2 {
-                label = "Banho de sol"
-            } else if indexPath.row == 3 {
-                label = "Fertilizante"
-            } else {
-                label = "Inseticida"
-            }
-            
-            return label
-        }
-        
-        func whichImage() -> String {
-            var label: String
-            
-            if indexPath.row == 0 {
-                label = "drop.fill.svg"
-            } else if indexPath.row == 1 {
-                label = "scissors.svg"
-            } else if indexPath.row == 2 {
-                label = "sol.svg"
-            } else if indexPath.row == 3 {
-                label = "fertilizante.svg"
-            } else {
-                label = "inseticida.svg"
-            }
-            
-            return label
-        }
-        
-        cell.configure(text: whichLabel(), imageName: whichImage())
+
+        cell.configure(text: cells[indexPath.row].label, imageName: cells[indexPath.row].image)
         
         let bgColor = UIView()
         bgColor.backgroundColor = .secondarySystemBackground
@@ -73,7 +38,10 @@ extension AddPlant: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        whichTask(row: indexPath.row)
+//        whichTask(row: indexPath.row, Interval: 1.0, LastTime: Date())
+        whichRow(row: indexPath.row)
     }
     
 }
+
+

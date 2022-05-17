@@ -9,22 +9,10 @@ import Foundation
 import UIKit
 
 class AddPlant: UIViewController {
-
-    var waterInterval: Double = 1.0
-    var waterLastTime: Date = Date()
-    var scissorInterval: Double = 1.0
-    var scissorLastTime: Date = Date()
-    var fertilizerInterval: Double = 1.0
-    var fertilizerLastTime: Date = Date()
-    var sunBathInterval: Double = 1.0
-    var sunBathLastTime: Date = Date()
-    var insecticideInterval: Double = 1.0
-    var insecticideLastTime: Date = Date()
-    
     
     @objc func buttonAction(){
         let namePlant: String = returnText(nameTextField)
-        let newPlant = Plant(name: namePlant, waterInterval: waterInterval, waterLastTime: waterLastTime, scissorInterval: scissorInterval, scissorLastTime: scissorLastTime, fertilizerInterval: fertilizerInterval, fertilizerLastTime: fertilizerLastTime, sunBathInterval: scissorInterval, sunBathLastTime: sunBathLastTime, insecticideInterval: insecticideInterval, insecticideLastTime: insecticideLastTime)
+        let newPlant = Plant(name: namePlant, waterInterval: cells[0].interval, waterLastTime: cells[0].lastTime, scissorInterval: cells[1].interval, scissorLastTime: cells[1].lastTime, fertilizerInterval: cells[3].interval, fertilizerLastTime: cells[3].lastTime, sunBathInterval: cells[2].interval, sunBathLastTime: cells[2].lastTime, insecticideInterval: cells[4].interval, insecticideLastTime: cells[4].lastTime)
         myPlants.append(newPlant)
         dismiss(animated: true)
     }
@@ -130,6 +118,12 @@ class AddPlant: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 56),
         ])
     }
+    
+    func whichRow(row: Int){
+        cells[row].interval = arrayTesteInterval[row]
+        cells[row].lastTime = arrayTesteLastTime[row]
+    }
+    
 }
 
 extension AddPlant: UITextFieldDelegate {
