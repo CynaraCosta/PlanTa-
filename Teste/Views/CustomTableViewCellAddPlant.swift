@@ -33,10 +33,10 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerTextFieldInterval.textColor = .label
         pickerTextFieldInterval.font = UIFont(name: "Nunito-Regular", size: 12)
         pickerTextFieldInterval.layer.cornerRadius = 8
-        pickerTextFieldInterval.frame = CGRect(x: 0, y: 0, width: 0, height: 48)
+        pickerTextFieldInterval.frame = CGRect(x: 0, y: 0, width: 0, height: 36)
         pickerTextFieldInterval.placeholder = "Escolher intervalo"
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15
-                                                       , height: 20))
+        pickerTextFieldInterval.textAlignment = .center
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 20))
         pickerTextFieldInterval.leftView = paddingView
         pickerTextFieldInterval.leftViewMode = .always
         return pickerTextFieldInterval
@@ -49,7 +49,8 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerTextFieldLastTime.font = UIFont(name: "Nunito-Regular", size: 12)
         pickerTextFieldLastTime.layer.cornerRadius = 8
         pickerTextFieldLastTime.frame = CGRect(x: 0, y: 0, width: 0, height: 48)
-        pickerTextFieldLastTime.placeholder = "Escolher intervalo"
+        pickerTextFieldLastTime.placeholder = "Escolher última vez"
+        pickerTextFieldLastTime.textAlignment = .center
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15
                                                        , height: 20))
         pickerTextFieldLastTime.leftView = paddingView
@@ -71,7 +72,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         let intervalLabel = UILabel()
         intervalLabel.textColor = .label
         intervalLabel.text = "Intervalo desejado"
-        intervalLabel.font = UIFont(name: "Nunito-Regular", size: 12)
+        intervalLabel.font = UIFont(name: "Nunito-Bold", size: 12)
         return intervalLabel
     }()
     
@@ -79,7 +80,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         let lastTimeLabel = UILabel()
         lastTimeLabel.textColor = .label
         lastTimeLabel.text = "Última aplicação"
-        lastTimeLabel.font = UIFont(name: "Nunito-Regular", size: 12)
+        lastTimeLabel.font = UIFont(name: "Nunito-Bold", size: 12)
         return lastTimeLabel
     }()
     
@@ -228,8 +229,6 @@ class CustomTableViewCellAddPlant: UITableViewCell {
             pickerTextFieldInterval.text = "A cada " + String(string + 1) + " dias"
         }
         
-        
-        
         pickerTextFieldInterval.endEditing(true)
         pickerTextFieldInterval.resignFirstResponder()
     }
@@ -247,10 +246,16 @@ extension CustomTableViewCellAddPlant: UIPickerViewDelegate, UIPickerViewDataSou
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let labelTitle: UILabel = UILabel()
+        labelTitle.font = UIFont(name: "Nunito-Regular", size: 20)
         labelTitle.text = array[row]
         labelTitle.textColor = .label
+        labelTitle.textAlignment = .center
         
         return labelTitle
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        <#code#>
     }
     
 }
