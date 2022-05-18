@@ -160,9 +160,3 @@ class HomeVC: UIViewController {
         return theImage
     }
 }
-
-
-
-
-
-   

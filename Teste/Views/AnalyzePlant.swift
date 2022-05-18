@@ -10,6 +10,7 @@ import UIKit
 class AnalyzePlant: UIViewController {
     
     var timeDateLabel: Timer?
+    var cellsToShow: [CellModel] = []
     
     private let dateString: UILabel = {
         let dateString = UILabel()
@@ -22,6 +23,11 @@ class AnalyzePlant: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cellsToShow = teste()
+        print(cellsToShow)
+        print(arrayTesteInterval)
+        print(arrayTesteLastTime)
         
         timeDateLabel = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(changeLabelText), userInfo: nil, repeats: true)
         
@@ -109,6 +115,46 @@ class AnalyzePlant: UIViewController {
         
     }
     
+    func teste() -> [CellModel] {
+        var array: [CellModel] = []
+        let namePlant: String = self.title!
+        let plantNumber = myPlants.firstIndex(where: {$0.name == namePlant})!
+        let plant = myPlants[plantNumber]
+        
+        let waterOn: Bool = plant.Interval(startTime: plant.waterLastTime, duration: plant.waterInterval)
+        let scissorsOn: Bool = plant.Interval(startTime: plant.scissorLastTime, duration: plant.scissorInterval)
+        let sunOn: Bool = plant.Interval(startTime: plant.sunBathLastTime, duration: plant.sunBathInterval)
+        let fertilizerOn: Bool = plant.Interval(startTime: plant.fertilizerLastTime, duration: plant.fertilizerInterval)
+        let insecticideOn: Bool = plant.Interval(startTime: plant.insecticideLastTime, duration: plant.insecticideInterval)
+        
+        if waterOn {
+            let waterCell = cells[0]
+            array.append(waterCell)
+        }
+        
+        if scissorsOn {
+            let scissorsCell = cells[1]
+            array.append(scissorsCell)
+        }
+        
+        if sunOn {
+            let sunCell = cells[2]
+            array.append(sunCell)
+        }
+        
+        if fertilizerOn {
+            let fertilizeCell = cells[3]
+            array.append(fertilizeCell)
+        }
+        
+        if insecticideOn {
+            let insecticideCell = cells[4]
+            array.append(insecticideCell)
+        }
+        
+        return array
+    }
+    
     @objc func whichPlant() -> String{
         let namePlant: String = self.title!
         let plantNumber = myPlants.firstIndex(where: {$0.name == namePlant})! + 1
@@ -129,3 +175,7 @@ class AnalyzePlant: UIViewController {
     }
         
 }
+
+// [Berenice] = [0, 2, 3]
+// [Barroca] = [0, 1]
+// [[0,2,3], [0,1]]

@@ -8,8 +8,15 @@
 import UIKit
 
 extension AnalyzePlant: UITableViewDataSource {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // manipular dados append cells to show
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return cellsToShow.count
+        //return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,17 +27,14 @@ extension AnalyzePlant: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.configure(text: cells[indexPath.row].label, imageName: cells[indexPath.row].image)
+        //cell.configure(text: cells[indexPath.row].label, imageName: cells[indexPath.row].image)
+        cell.configure(text: cellsToShow[indexPath.row].label, imageName: cellsToShow[indexPath.row].image)
+        // cells to show
         
         let bgColor = UIView()
         bgColor.backgroundColor = .secondarySystemBackground
         cell.selectedBackgroundView = bgColor
         
-//        for plant in myPlants {
-//            if indexPath.row == 0 && plant.Interval(startTime: plant.waterLastTime, duration: plant.waterInterval) {
-//                return cell
-//            }
-//        }
         
         return cell
     }

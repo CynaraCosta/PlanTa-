@@ -60,6 +60,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
     
     private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
         return datePicker
     }()
     
