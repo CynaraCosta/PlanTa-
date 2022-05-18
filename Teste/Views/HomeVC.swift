@@ -51,11 +51,7 @@ class HomeVC: UIViewController {
         plants_title.textColor = UIColor(named: "verde-escuro")
         
         self.view.addSubview(plants_title)
-        
-        //let imageHouse: UIImageView
-        //imageHouse = UIImageView(frame: CGRect(x: 100, y: 200, width: 282, height: 289))
-        //imageHouse.image = UIImage(named: whichHouseImage)
-        //imageHouse.contentMode = .scaleAspectFit
+
         
         self.view.addSubview(imageHouse)
         
@@ -64,9 +60,6 @@ class HomeVC: UIViewController {
         tableView.backgroundColor = .clear
         
         self.view.addSubview(tableView)
-        
-        //self.view.addSubview(tableView)
-
         
         // Autolayout
         
