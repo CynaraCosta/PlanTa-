@@ -9,10 +9,6 @@ import UIKit
 
 extension AnalyzePlant: UITableViewDataSource {
     
-    override func viewWillAppear(_ animated: Bool) {
-        cellsToShow = teste()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellsToShow.count
         //return 5

@@ -21,7 +21,7 @@ class AnalyzePlant: UIViewController {
         return dateString
     }()
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         cellsToShow = teste()
     }
@@ -97,6 +97,7 @@ class AnalyzePlant: UIViewController {
         let numberInit = plantNumber * 5
         let lastNumber = (plantNumber + 1) * 5
         var count = numberInit
+    
         
         print(numberInit)
         print(lastNumber)

@@ -36,9 +36,6 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerTextFieldInterval.frame = CGRect(x: 0, y: 0, width: 0, height: 36)
         pickerTextFieldInterval.placeholder = "Escolher intervalo"
         pickerTextFieldInterval.textAlignment = .center
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 20))
-        pickerTextFieldInterval.leftView = paddingView
-        pickerTextFieldInterval.leftViewMode = .always
         return pickerTextFieldInterval
     }()
     
@@ -51,10 +48,6 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerTextFieldLastTime.frame = CGRect(x: 0, y: 0, width: 0, height: 48)
         pickerTextFieldLastTime.placeholder = "Escolher última vez"
         pickerTextFieldLastTime.textAlignment = .center
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15
-                                                       , height: 20))
-        pickerTextFieldLastTime.leftView = paddingView
-        pickerTextFieldLastTime.leftViewMode = .always
         return pickerTextFieldLastTime
     }()
     
@@ -169,6 +162,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
             pickerTextFieldLastTime.topAnchor.constraint(equalTo: lastTimeLabel.bottomAnchor, constant: 24),
             pickerTextFieldLastTime.widthAnchor.constraint(equalTo: self.widthAnchor),
         ])
+        
     }
     
     required init?(coder: NSCoder) {
