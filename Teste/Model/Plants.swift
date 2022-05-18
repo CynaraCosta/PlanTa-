@@ -40,11 +40,22 @@ class Plant {
     }
     
     func Interval(startTime: Date, duration: Double) -> Bool{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
         let now = Date()
         let dateInterval = DateInterval(start: startTime, duration: duration * 24.0 * 3600.0)
         let dateEnd = dateInterval.end
         
-        if dateEnd == now || dateEnd < now {
+        let nowString = dateFormatter.string(from: now)
+        let dateEndString = dateFormatter.string(from: dateEnd)
+        
+        print(dateEndString)
+        
+        if duration == 1.0 {
+            return true
+        } else if dateEndString == nowString || dateEndString < nowString {
             return true
         } else {
             return false

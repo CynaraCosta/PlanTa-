@@ -10,8 +10,7 @@ import UIKit
 extension AnalyzePlant: UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
-        // manipular dados append cells to show
-        
+        cellsToShow = teste()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
