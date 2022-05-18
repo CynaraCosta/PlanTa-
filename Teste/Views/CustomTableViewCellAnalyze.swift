@@ -26,7 +26,7 @@ class CustomTableViewCellAnalyze: UITableViewCell {
         let buttonFill = UIButton()
         buttonFill.frame = CGRect(x: 0, y: 0, width: 19, height: 19)
         buttonFill.setImage(checkImageFill, for: .normal)
-        buttonFill.addTarget(self, action: #selector(didTapCheckFill), for: .touchUpInside)
+//        buttonFill.addTarget(self, action: #selector(didTapCheckFill), for: .touchUpInside)
         return buttonFill
     }()
     
@@ -94,6 +94,19 @@ class CustomTableViewCellAnalyze: UITableViewCell {
     @objc func didTapCheck(){
         button.isHidden = true
         buttonFill.isHidden = false
+        
+        if label.text == "Água" {
+            
+        } else if label.text == "Corte" {
+            
+        } else if label.text == "Banho de Sol" {
+            
+        } else if label.text == "Fertilizante" {
+            
+        } else {
+            
+        }
+        
     }
     
     @objc func didTapCheckFill(){
@@ -115,5 +128,4 @@ class CustomTableViewCellAnalyze: UITableViewCell {
         label.text = nil
         image.image = nil
     }
-    
 }

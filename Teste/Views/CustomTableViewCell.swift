@@ -21,7 +21,7 @@ class CustomTableViewCell: UITableViewCell {
     
     private let image: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "happy.face.svg")
+        image.image = UIImage(named: "leaf.circle.svg")
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         return image

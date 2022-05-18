@@ -189,6 +189,3 @@ class AnalyzePlant: UIViewController {
         
 }
 
-// [Berenice] = [0, 2, 3]
-// [Barroca] = [0, 1]
-// [[0,2,3], [0,1]]

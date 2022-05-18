@@ -32,5 +32,3 @@ var cells = [
 
 var arrayTesteInterval: [Double] = []
 var arrayTesteLastTime: [Date] = []
-
-

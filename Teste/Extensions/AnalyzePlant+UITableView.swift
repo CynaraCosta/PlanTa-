@@ -11,7 +11,6 @@ extension AnalyzePlant: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellsToShow.count
-        //return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -24,7 +23,6 @@ extension AnalyzePlant: UITableViewDataSource {
         
         //cell.configure(text: cells[indexPath.row].label, imageName: cells[indexPath.row].image)
         cell.configure(text: cellsToShow[indexPath.row].label, imageName: cellsToShow[indexPath.row].image)
-        // cells to show
         
         let bgColor = UIView()
         bgColor.backgroundColor = .secondarySystemBackground
