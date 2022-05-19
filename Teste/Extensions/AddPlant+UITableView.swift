@@ -22,6 +22,7 @@ extension AddPlant: UITableViewDataSource {
         }
 
         cell.configure(text: cells[indexPath.row].label, imageName: cells[indexPath.row].image)
+        cell.configureCellModel(cell: cells[indexPath.row])
         
         let bgColor = UIView()
         bgColor.backgroundColor = .secondarySystemBackground
@@ -34,12 +35,7 @@ extension AddPlant: UITableViewDataSource {
 extension AddPlant: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        whichTask(row: indexPath.row, Interval: 1.0, LastTime: Date())
-        whichRow(row: indexPath.row)
+        return 248
     }
     
 }

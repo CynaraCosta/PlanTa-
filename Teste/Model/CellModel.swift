@@ -29,6 +29,3 @@ var cells = [
     CellModel(image: "fertilizante.svg", label: "Fertilizante"),
     CellModel(image: "inseticida.svg", label: "Inseticida"),
 ]
-
-var arrayTesteInterval: [Double] = []
-var arrayTesteLastTime: [Date] = []

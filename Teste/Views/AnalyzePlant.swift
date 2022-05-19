@@ -10,6 +10,7 @@ import UIKit
 class AnalyzePlant: UIViewController {
     
     var timeDateLabel: Timer?
+    var planta: Plant?
     var cellsToShow: [CellModel] = []
     
     private let dateString: UILabel = {
@@ -86,53 +87,13 @@ class AnalyzePlant: UIViewController {
     func teste() -> [CellModel] {
         var array: [CellModel] = []
         let namePlant: String = self.title!
-        print(namePlant)
         let plantNumber = myPlants.firstIndex(where: {$0.name == namePlant})!
         // berenice = 0
         // barroca = 1
         // ale = 2
-        let plant = myPlants[plantNumber]
-        print(arrayTesteInterval)
+        var plant = myPlants[plantNumber]
         
-        let numberInit = plantNumber * 5
-        let lastNumber = (plantNumber + 1) * 5
-        var count = numberInit
-    
-        
-        print(numberInit)
-        print(lastNumber)
-        print(count)
-
-        while count < lastNumber {
-            
-            if count % 5 == 0 {
-                plant.waterInterval = arrayTesteInterval[count]
-                plant.waterLastTime = arrayTesteLastTime[count]
-            }
-            
-            if count % 5 == 1 {
-                plant.scissorInterval = arrayTesteInterval[count]
-                plant.scissorLastTime = arrayTesteLastTime[count]
-            }
-            
-            if count % 5 == 2 {
-                plant.sunBathInterval = arrayTesteInterval[count]
-                plant.sunBathLastTime = arrayTesteLastTime[count]
-            }
-            
-            if count % 5 == 3 {
-                plant.fertilizerInterval = arrayTesteInterval[count]
-                plant.fertilizerLastTime = arrayTesteLastTime[count]
-            }
-            
-            if count % 5 == 4 {
-                plant.insecticideInterval = arrayTesteInterval[count]
-                plant.insecticideLastTime = arrayTesteLastTime[count]
-            }
-            
-            count += 1
-        }
-        
+        plant = planta ?? plant
         let waterOn: Bool = plant.Interval(startTime: plant.waterLastTime, duration: plant.waterInterval)
         let scissorsOn: Bool = plant.Interval(startTime: plant.scissorLastTime, duration: plant.scissorInterval)
         let sunOn: Bool = plant.Interval(startTime: plant.sunBathLastTime, duration: plant.sunBathInterval)

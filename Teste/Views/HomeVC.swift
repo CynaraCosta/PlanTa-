@@ -127,6 +127,19 @@ class HomeVC: UIViewController {
         analyzeVC.navigationItem.setRightBarButton(cancelButtonNavigationItem, animated: true)
     }
     
+    func didTapAnalyze(plant: Plant){
+        let analyzeVC = AnalyzePlant()
+        analyzeVC.planta = plant
+        analyzeVC.title = plant.name
+        let navVC = UINavigationController(rootViewController: analyzeVC)
+        
+        self.present(navVC, animated: true)
+        let cancelButtonNavigationItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissView))
+        cancelButtonNavigationItem.tintColor = .label
+        
+        analyzeVC.navigationItem.setRightBarButton(cancelButtonNavigationItem, animated: true)
+    }
+    
     @objc func dismissView(){
         dismiss(animated: true)
     }

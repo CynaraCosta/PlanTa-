@@ -10,6 +10,7 @@ import UIKit
 class CustomTableViewCellAnalyze: UITableViewCell {
     
     static let identifier = "CustomTableViewCellAnalyze"
+    var plant: Plant?
     
     private let button: UIButton = {
         let checkImage = UIImage(named: "check.out.svg")
@@ -96,17 +97,16 @@ class CustomTableViewCellAnalyze: UITableViewCell {
         buttonFill.isHidden = false
         
         if label.text == "Água" {
-            
+            plant?.waterLastTime = .now
         } else if label.text == "Corte" {
-            
+            plant?.scissorLastTime = .now
         } else if label.text == "Banho de Sol" {
-            
+            plant?.sunBathLastTime = .now
         } else if label.text == "Fertilizante" {
-            
+            plant?.fertilizerLastTime = .now
         } else {
-            
+            plant?.insecticideLastTime = .now
         }
-        
     }
     
     @objc func didTapCheckFill(){
@@ -118,9 +118,13 @@ class CustomTableViewCellAnalyze: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
         
-    public func configure(text: String, imageName: String){
+    public func configure(text: String, imageName: String) {
         label.text = text
         image.image = UIImage(named: imageName)
+    }
+    
+    public func receivePlant(plant: Plant?){
+        self.plant = plant
     }
     
     override func prepareForReuse() {

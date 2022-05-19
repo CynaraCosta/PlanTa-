@@ -54,7 +54,8 @@ extension HomeVC: UITableViewDelegate {
             
         } else {
             let number = indexPath.row
-            didTapAnalyzePlant(namePlant: myPlants[number].name)
+//            didTapAnalyzePlant(namePlant: myPlants[number].name)
+            didTapAnalyze(plant: myPlants[number])
         }
     }
     

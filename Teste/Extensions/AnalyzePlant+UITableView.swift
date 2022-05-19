@@ -23,6 +23,7 @@ extension AnalyzePlant: UITableViewDataSource {
         
         //cell.configure(text: cells[indexPath.row].label, imageName: cells[indexPath.row].image)
         cell.configure(text: cellsToShow[indexPath.row].label, imageName: cellsToShow[indexPath.row].image)
+        cell.receivePlant(plant: self.planta)
         
         let bgColor = UIView()
         bgColor.backgroundColor = .secondarySystemBackground

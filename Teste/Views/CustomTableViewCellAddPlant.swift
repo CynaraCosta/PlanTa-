@@ -12,6 +12,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
     static let identifier = "CustomTableViewCellAddPlant"
     
     var array: [String] = []
+    var cell: CellModel?
 
     func makeArray(){
         var counter = 1
@@ -33,7 +34,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerTextFieldInterval.textColor = .label
         pickerTextFieldInterval.font = UIFont(name: "Nunito-Regular", size: 12)
         pickerTextFieldInterval.layer.cornerRadius = 8
-        pickerTextFieldInterval.frame = CGRect(x: 0, y: 0, width: 0, height: 36)
+        pickerTextFieldInterval.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         pickerTextFieldInterval.placeholder = "Escolher intervalo"
         pickerTextFieldInterval.textAlignment = .center
         return pickerTextFieldInterval
@@ -45,7 +46,7 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerTextFieldLastTime.textColor = .label
         pickerTextFieldLastTime.font = UIFont(name: "Nunito-Regular", size: 12)
         pickerTextFieldLastTime.layer.cornerRadius = 8
-        pickerTextFieldLastTime.frame = CGRect(x: 0, y: 0, width: 0, height: 48)
+        pickerTextFieldLastTime.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         pickerTextFieldLastTime.placeholder = "Escolher última vez"
         pickerTextFieldLastTime.textAlignment = .center
         return pickerTextFieldLastTime
@@ -144,11 +145,12 @@ class CustomTableViewCellAddPlant: UITableViewCell {
             intervalLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
         
-        
         pickerTextFieldInterval.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             pickerTextFieldInterval.topAnchor.constraint(equalTo: intervalLabel.bottomAnchor, constant: 16),
-            pickerTextFieldInterval.widthAnchor.constraint(equalTo: self.widthAnchor),
+            pickerTextFieldLastTime.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pickerTextFieldLastTime.widthAnchor.constraint(equalToConstant: self.frame.width * 0.8),
+            pickerTextFieldInterval.heightAnchor.constraint(equalToConstant: 36),
         ])
         
         lastTimeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -159,10 +161,12 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         
         pickerTextFieldLastTime.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            pickerTextFieldLastTime.topAnchor.constraint(equalTo: lastTimeLabel.bottomAnchor, constant: 24),
-            pickerTextFieldLastTime.widthAnchor.constraint(equalTo: self.widthAnchor),
+            pickerTextFieldLastTime.topAnchor.constraint(equalTo: lastTimeLabel.bottomAnchor, constant: 16),
+            pickerTextFieldLastTime.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pickerTextFieldLastTime.widthAnchor.constraint(equalToConstant: self.frame.width * 0.8),
+            pickerTextFieldLastTime.heightAnchor.constraint(equalToConstant: 36),
+
         ])
-        
     }
     
     required init?(coder: NSCoder) {
@@ -172,6 +176,10 @@ class CustomTableViewCellAddPlant: UITableViewCell {
     public func configure(text: String, imageName: String){
         label.text = text
         image.image = UIImage(named: imageName)
+    }
+    
+    public func configureCellModel(cell: CellModel) {
+        self.cell = cell
     }
     
     override func prepareForReuse() {
@@ -211,7 +219,9 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerTextFieldLastTime.endEditing(true)
         pickerTextFieldLastTime.text = dateFormarter.string(from: datePicker.date)
         
-        arrayTesteLastTime.append(datePicker.date)
+        
+        cell?.lastTime = datePicker.date
+//        arrayTesteLastTime.append(datePicker.date)
 
         pickerTextFieldLastTime.resignFirstResponder()
     }
@@ -226,7 +236,9 @@ class CustomTableViewCellAddPlant: UITableViewCell {
             pickerTextFieldInterval.text = "A cada " + String(string + 1) + " dias"
         }
         
-        arrayTesteInterval.append(Double(string + 1))
+        cell?.interval = Double(string + 1)
+        
+//        arrayTesteInterval.append(Double(string + 1))
         pickerTextFieldInterval.endEditing(true)
         pickerTextFieldInterval.resignFirstResponder()
     }

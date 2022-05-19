@@ -119,10 +119,6 @@ class AddPlant: UIViewController {
         ])
     }
     
-    func whichRow(row: Int){
-        cells[row].interval = arrayTesteInterval[row]
-        cells[row].lastTime = arrayTesteLastTime[row]
-    }
     
 }
 
