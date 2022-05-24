@@ -148,8 +148,8 @@ class CustomTableViewCellAddPlant: UITableViewCell {
         pickerTextFieldInterval.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             pickerTextFieldInterval.topAnchor.constraint(equalTo: intervalLabel.bottomAnchor, constant: 16),
-            pickerTextFieldLastTime.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            pickerTextFieldLastTime.widthAnchor.constraint(equalToConstant: self.frame.width * 0.8),
+            pickerTextFieldInterval.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pickerTextFieldInterval.widthAnchor.constraint(equalToConstant: self.frame.width * 0.8),
             pickerTextFieldInterval.heightAnchor.constraint(equalToConstant: 36),
         ])
         
