@@ -1,4 +1,4 @@
-# PlanTae
+# PlanTaê 🌱
 
 ## O projeto ⌨️
 
