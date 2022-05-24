@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		A479BF5D2833F30000B2AA60 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A479BF5C2833F30000B2AA60 /* CellModel.swift */; };
+		A479BF68283D5E7300B2AA60 /* homeWithPlantLightMode.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF5F283D5E7300B2AA60 /* homeWithPlantLightMode.png */; };
+		A479BF69283D5E7300B2AA60 /* homeDarkMode.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF60283D5E7300B2AA60 /* homeDarkMode.png */; };
+		A479BF6A283D5E7300B2AA60 /* secondPlantDarkMode.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF61283D5E7300B2AA60 /* secondPlantDarkMode.png */; };
+		A479BF6B283D5E7300B2AA60 /* addNewPlantLightMode.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF62283D5E7300B2AA60 /* addNewPlantLightMode.png */; };
+		A479BF6C283D5E7300B2AA60 /* homeWithPlantDarkMode.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF63283D5E7300B2AA60 /* homeWithPlantDarkMode.png */; };
+		A479BF6D283D5E7300B2AA60 /* addPlantDarkMode.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF64283D5E7300B2AA60 /* addPlantDarkMode.png */; };
+		A479BF6E283D5E7300B2AA60 /* PlantLightMode.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF65283D5E7300B2AA60 /* PlantLightMode.png */; };
+		A479BF6F283D5E7300B2AA60 /* deletePlants.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF66283D5E7300B2AA60 /* deletePlants.png */; };
+		A479BF70283D5E7300B2AA60 /* homeLightMode.png in Resources */ = {isa = PBXBuildFile; fileRef = A479BF67283D5E7300B2AA60 /* homeLightMode.png */; };
 		A4CD36E828327B1400790105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CD36E728327B1400790105 /* AppDelegate.swift */; };
 		A4CD36EA28327B1400790105 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CD36E928327B1400790105 /* SceneDelegate.swift */; };
 		A4CD36EF28327B1400790105 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4CD36ED28327B1400790105 /* Main.storyboard */; };
@@ -38,6 +47,15 @@
 
 /* Begin PBXFileReference section */
 		A479BF5C2833F30000B2AA60 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		A479BF5F283D5E7300B2AA60 /* homeWithPlantLightMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeWithPlantLightMode.png; sourceTree = "<group>"; };
+		A479BF60283D5E7300B2AA60 /* homeDarkMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeDarkMode.png; sourceTree = "<group>"; };
+		A479BF61283D5E7300B2AA60 /* secondPlantDarkMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondPlantDarkMode.png; sourceTree = "<group>"; };
+		A479BF62283D5E7300B2AA60 /* addNewPlantLightMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addNewPlantLightMode.png; sourceTree = "<group>"; };
+		A479BF63283D5E7300B2AA60 /* homeWithPlantDarkMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeWithPlantDarkMode.png; sourceTree = "<group>"; };
+		A479BF64283D5E7300B2AA60 /* addPlantDarkMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addPlantDarkMode.png; sourceTree = "<group>"; };
+		A479BF65283D5E7300B2AA60 /* PlantLightMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlantLightMode.png; sourceTree = "<group>"; };
+		A479BF66283D5E7300B2AA60 /* deletePlants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deletePlants.png; sourceTree = "<group>"; };
+		A479BF67283D5E7300B2AA60 /* homeLightMode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeLightMode.png; sourceTree = "<group>"; };
 		A4CD36E428327B1400790105 /* Teste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4CD36E728327B1400790105 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4CD36E928327B1400790105 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,9 +97,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A479BF5E283D5DCF00B2AA60 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				A479BF64283D5E7300B2AA60 /* addPlantDarkMode.png */,
+				A479BF61283D5E7300B2AA60 /* secondPlantDarkMode.png */,
+				A479BF63283D5E7300B2AA60 /* homeWithPlantDarkMode.png */,
+				A479BF67283D5E7300B2AA60 /* homeLightMode.png */,
+				A479BF62283D5E7300B2AA60 /* addNewPlantLightMode.png */,
+				A479BF5F283D5E7300B2AA60 /* homeWithPlantLightMode.png */,
+				A479BF65283D5E7300B2AA60 /* PlantLightMode.png */,
+				A479BF66283D5E7300B2AA60 /* deletePlants.png */,
+				A479BF60283D5E7300B2AA60 /* homeDarkMode.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		A4CD36DB28327B1400790105 = {
 			isa = PBXGroup;
 			children = (
+				A479BF5E283D5DCF00B2AA60 /* Screenshots */,
 				A4CD36E628327B1400790105 /* Teste */,
 				A4CD36E528327B1400790105 /* Products */,
 			);
@@ -221,13 +256,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4CD372428327F3300790105 /* Nunito-SemiBold.ttf in Resources */,
+				A479BF6F283D5E7300B2AA60 /* deletePlants.png in Resources */,
 				A4CD36F428327B1500790105 /* LaunchScreen.storyboard in Resources */,
+				A479BF69283D5E7300B2AA60 /* homeDarkMode.png in Resources */,
 				A4CD372228327F3300790105 /* Nunito-Bold.ttf in Resources */,
 				A4CD36F128327B1500790105 /* Assets.xcassets in Resources */,
+				A479BF68283D5E7300B2AA60 /* homeWithPlantLightMode.png in Resources */,
+				A479BF6D283D5E7300B2AA60 /* addPlantDarkMode.png in Resources */,
 				A4CD372328327F3300790105 /* Nunito-ExtraBold.ttf in Resources */,
 				A4CD372128327F3300790105 /* Nunito-Regular.ttf in Resources */,
 				A4CD372528327F3300790105 /* Nunito-Light.ttf in Resources */,
+				A479BF6E283D5E7300B2AA60 /* PlantLightMode.png in Resources */,
+				A479BF70283D5E7300B2AA60 /* homeLightMode.png in Resources */,
 				A4CD36EF28327B1400790105 /* Main.storyboard in Resources */,
+				A479BF6C283D5E7300B2AA60 /* homeWithPlantDarkMode.png in Resources */,
+				A479BF6B283D5E7300B2AA60 /* addNewPlantLightMode.png in Resources */,
+				A479BF6A283D5E7300B2AA60 /* secondPlantDarkMode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
